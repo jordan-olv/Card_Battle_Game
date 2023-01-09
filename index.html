@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Card Battle Game</title>
+</head>
+
+<body>
+  <div class="element"></div>
+  <section class="start_game">
+    <button onclick="startGame()" class="btn hover-border">
+      <span>LANCER LA PARTIE</span>
+    </button>
+  </section>
+
+  <section class="choice_cards hidden">
+    <div class="choice_class_text">
+      <img src="/assets/panel.png" alt="">
+      <!-- <h1>CHOISIS TA CLASSE</h1> -->
+    </div>
+    <div class="choice_cards_content hidden">
+      <!-- <figure class="image-card">
+        <h5>Hexblade</h5>
+        <img src="./assets/cards/card01.png" alt="" />
+        <figcaption>
+
+        </figcaption>
+      </figure>
+      <figure class="image-card">
+        <h5>Hunter</h5>
+        <img src="./assets/cards/card02.png" alt="" />
+        <figcaption>
+
+        </figcaption>
+      </figure>
+      <figure class="image-card">
+        <h5>Scavenger</h5>
+        <img src="./assets/cards/card03.png" alt="" />
+        <figcaption>
+
+        </figcaption>
+      </figure> -->
+    </div>
+    <input type="text" id="namePlayer" placeholder="Pseudo" value="Player 1">
+  </section>
+
+  <section class="choice_map hidden">
+
+    <div class="choice_map_content hidden">
+      <h2>CHOISSISEZ UNE MAP</h2>
+      <div class="choice_map_list">
+
+      </div>
+    </div>
+  </section>
+
+  <section class="fight hidden">
+    <div class="fight__end">
+      <div class="fight__end--content">
+        <h2>FIN DE LA PARTIE</h2>
+        <div class="fight__end--content--middle">
+          <div class="playerEnd">
+            <h3 class="endName1">JOUEUR 1</h3>
+            <div class="endImgBloc">
+              <img class="endImg1" src="./assets/cards/card01.png" width="100px" alt="">
+            </div>
+            <h3></h3>
+          </div>
+          <img src="./assets/vs.png" alt="">
+          <div class="playerEnd">
+            <h3 class="endName2">JOUEUR 2</h3>
+            <div class="endImgBloc">
+              <img class="endImg2" src="./assets/cards/card01.png" width="100px" alt="">
+            </div>
+            <h3></h3>
+          </div>
+          <div class="fight__end--content--middle--bot">
+            <button class="btn hover-border playAgain"><span>REJOUER</span></button>
+          </div>
+        </div>
+        <div class="fight__end--content--bottom"></div>
+
+      </div>
+    </div>
+    <div class="fight__block"></div>
+    <div class="fight__player one">
+      <div class="fight__player__infos">
+        <p></p>
+        <div class="life__barre"></div>
+        <p></p>
+      </div>
+
+      <div class="fight__player__spell">
+
+      </div>
+      <div class="null">
+
+      </div>
+    </div>
+    <div class="fight_content">
+      <div class="fight_content_turn">
+        <img src="/assets/panel.png" alt="">
+      </div>
+      <div class="fight_content_logs">
+
+      </div>
+    </div>
+    <div class="fight__player two">
+      <div class="fight__player__infos">
+        <p></p>
+        <div class="life__barre"></div>
+        <p></p>
+      </div>
+
+      <div class="fight__player__spell">
+
+      </div>
+      <div class="null">
+      </div>
+    </div>
+  </section>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

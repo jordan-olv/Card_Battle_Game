@@ -1,0 +1,404 @@
+.fight_content {
+  width: 62%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+
+  &_turn {
+    margin-top: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+
+      // content: "JOUEUR 1 \a CHOISIS TA CLASSE";
+      content: attr(data-value);
+      font-family: pixles, 'monospaces';
+      white-space: pre;
+      text-align: center;
+      position: absolute;
+      font-size: 1.5em;
+    }
+  }
+
+  &_logs {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem 3rem;
+    gap: .5rem;
+    overflow: hidden;
+
+    p {
+      text-align: left;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+  }
+}
+
+.fight__player {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 19%;
+  flex-direction: column;
+  gap: 1rem;
+  font-weight: bold;
+  font-size: 1.75em;
+
+  &>.null {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 55%;
+    height: 27%;
+    border-radius: 10px;
+    background-size: cover;
+    animation: horizontal-shaking .2s infinite;
+    animation-play-state: paused;
+  }
+
+  .two {
+    background: red;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fight__player__spell {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__infos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 6;
+    gap: 7px;
+
+    p:last-child {
+      font-size: 1.3rem;
+    }
+  }
+
+  .life__barre {
+    background: rgb(149, 149, 168);
+    border-radius: 20px;
+    width: 65%;
+    height: 13px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: var(--lifeWidth, 100%);
+      height: 100%;
+      border-radius: 20px;
+      background: var(--bar-life);
+      transition: width 0.5s;
+    }
+
+  }
+
+
+
+
+  .test img {
+    width: 55%;
+    border-radius: 10px;
+  }
+}
+
+section.fight {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .fight__end {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: #51393cbb;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .endImgBlocWin {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+
+    .endImgBlocLose {
+      position: relative;
+
+      img {
+        filter: grayscale(100%);
+      }
+
+      &::after {
+        content: url(../../assets/bloodbg.png);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+
+    .endImg1Bloc {}
+
+    .endImg2Bloc {}
+
+    &--content {
+      background: $contentFull;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      height: 80%;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: space-between;
+
+      &--middle {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        text-align: center;
+        position: 0;
+        position: relative;
+
+        &--bot {
+          flex-basis: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 1rem;
+
+          span {
+            padding: 12px 19px;
+          }
+
+        }
+
+
+        img {
+          aspect-ratio: 2/3;
+          width: 100px;
+          border-radius: 10px;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+          }
+        }
+      }
+
+      &--bottom {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 2rem 3rem;
+        gap: .5rem;
+        overflow: hidden;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        max-height: 30%;
+        overflow-Y: scroll;
+
+        scrollbar-width: auto;
+        scrollbar-color: #ffae00 #ffffff;
+
+        &::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: rgba(156, 121, 126, 1);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #ffae00;
+          border-radius: 10px;
+        }
+      }
+
+      h2 {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.test {
+  width: 25%;
+  height: 65px;
+  background: $content;
+  -webkit-box-shadow: 0px 0px 4px 0px #000000;
+  box-shadow: 0px 0px 4px 0px #000000;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: $contentHover;
+  }
+}
+
+
+
+.notif_attack {
+  width: 30%;
+  border-radius: 10px;
+  padding: .6rem;
+  background: lighten($attack-color, 20%);
+  border: $dash-size dashed $attack-color;
+  box-shadow: 0 0 0 ($dash-size / 2) darken($attack-color, 20%),
+    0 0 0 ($dash-size * 2.5) #fff,
+    inset 0 0 0 ($dash-size / 2) darken($attack-color, 20%),
+    0 $dash-size (
+    $dash-size * 2) ($dash-size * 3) rgba(0, 0, 0, 0.5),
+    inset 0 0 0 ($dash-size * 1.2) #fff,
+    inset 0 0 100vw 100vw $fill-color;
+  color: $attack-color;
+  text-shadow: 0 2px #fff;
+
+
+  img {
+    width: 25px;
+
+  }
+}
+
+.notif_heal {
+  width: 30%;
+  border-radius: 10px;
+  padding: .6rem;
+  background: lighten($heal-color, 20%
+  );
+border: $dash-size dashed $heal-color;
+box-shadow: 0 0 0 ($dash-size / 2) darken($heal-color, 20%),
+  0 0 0 ($dash-size * 2.5) #fff,
+  inset 0 0 0 ($dash-size / 2) darken($heal-color, 20%),
+  0 $dash-size (
+  $dash-size * 2) ($dash-size * 3) rgba(0, 0, 0, 0.5),
+  inset 0 0 0 ($dash-size * 1.2) #fff,
+  inset 0 0 100vw 100vw $fill-color;
+color: $heal-color;
+text-shadow: 0 2px #fff;
+
+img {
+  width: 25px;
+
+}
+}
+
+.notif_crit {
+  background: lighten($crit-color, 20%
+  );
+border: $dash-size dashed $crit-color;
+box-shadow: 0 0 0 ($dash-size / 2) darken($crit-color, 20%),
+  0 0 0 ($dash-size * 2.5) #fff,
+  inset 0 0 0 ($dash-size / 2) darken($crit-color, 20%),
+  0 $dash-size (
+  $dash-size * 2) ($dash-size * 3) rgba(0, 0, 0, 0.5),
+  inset 0 0 0 ($dash-size * 1.2) #fff,
+  inset 0 0 100vw 100vw $fill-color;
+color: $crit-color;
+}
+
+.critique {
+  border: 2px solid
+}
+
+p.attackPlayerOne {
+  animation: fromLeft .5s;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+p.attackPlayerTwo {
+  animation: fromRight .5s;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.fight__block {
+  position: absolute;
+  right: 0;
+  width: 19%;
+  background: #4c2b1ceb;
+  z-index: 3;
+  height: 100%;
+  filter: blur(128px
+  );
+}
+
+.blood {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

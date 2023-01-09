@@ -1,0 +1,64 @@
+.btn {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: all;
+  animation: fadeInScale 1.3s;
+}
+
+.btn span {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  font-family: pixles, 'monospace';
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 17px 25px;
+  transition: 0.3s;
+}
+
+
+.btn span {
+  color: rgb(18, 18, 18);
+  background-color: $white;
+}
+
+.btn::before,
+.btn::after {
+  position: absolute;
+  content: "";
+  background: transparent;
+  z-index: 2;
+}
+
+.btn.hover-border::before,
+.btn.hover-border::after {
+  width: 10%;
+  height: 25%;
+  transition: 0.35s;
+}
+
+.btn.hover-border::before {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid $white;
+  border-bottom: 1px solid $white;
+}
+
+.btn.hover-border::after {
+  top: 0;
+  right: 0;
+  border-right: 1px solid $white;
+  border-top: 1px solid $white;
+}
+
+.btn.hover-border:hover::before,
+.btn.hover-border:hover::after {
+  width: 99%;
+  height: 99%;
+}

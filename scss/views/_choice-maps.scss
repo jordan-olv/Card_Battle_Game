@@ -1,0 +1,36 @@
+section.choice_map {
+  display: flex;
+  flex-direction: column;
+
+  .choice_map_content {
+    width: 55%;
+    height: 55%;
+    background: $content;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .choice_map_list {
+      margin: auto;
+      display: flex;
+      gap: 2rem;
+
+    }
+
+    img {
+      width: 150px;
+      aspect-ratio: 2/3;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    h2 {
+      margin-top: .70rem;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@font-face {
+  font-family: pixles;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/04B_03__.TTF);
+}
+
+@import 'utils/variables';
+@import 'views/start-game';
+@import 'views/choice-cards';
+@import 'views/choice-maps';
+@import 'views/fight_content';
+@import 'utils/btn';
+@import 'utils/cards';
+@import 'utils/animations';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(0deg, #9c797ead, #9c797e5e), url('../assets/bg01.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn .9s;
+  color: $white;
+}
+
+section.choice_cards {
+  animation: none;
+}
+
+
+
+
+section.hidden {
+  display: none;
+}
